@@ -16,8 +16,8 @@ public class MainView extends HorizontalLayout {
     private Button sayHello;
 
     public MainView() {
-        name = new TextField("Your name");
-        sayHello = new Button("Say hello");
+        name = new TextField(new TextFieldLabelService().getLabel("name"));
+        sayHello = new Button("Say hello from Java");
         sayHello.addClickListener(e -> {
             Notification.show("Hello " + name.getValue());
         });
