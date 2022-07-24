@@ -26,7 +26,7 @@ public class MainView extends HorizontalLayout {
         setMargin(true);
         setVerticalComponentAlignment(Alignment.END, name, sayHello);
 
-        add(name, sayHello);
+        add(new RedTitle("Bonjour en rouge"), name, sayHello);
     }
 
 }
