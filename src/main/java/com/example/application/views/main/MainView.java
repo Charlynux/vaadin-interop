@@ -4,6 +4,7 @@ import com.example.application.ClojureAccess;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -32,6 +33,7 @@ public class MainView extends VerticalLayout {
         setHorizontalComponentAlignment(Alignment.END, name, sayHello);
 
         add(new RedTitle("Bonjour en rouge"),
+                new Span(clojureAccess.fizzbuzz(15)),
                 clojureAccess.createClojureTitle(),
                 new VerticalLayout(name, sayHello));
     }

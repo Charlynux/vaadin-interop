@@ -17,11 +17,20 @@ public class ClojureAccess {
         }
     }
 
+    public String fizzbuzz(Integer n)
+    {
+        return (String) getFn("todoapp.services", "fizzbuzz").invoke(n);
+    }
+
     public Object callClojure(String ns, String fn) throws Exception {
+        return ((Callable) getFn(ns, fn)).call();
+    }
+
+    private IFn getFn(String ns, String fn) {
         // load Clojure lib. See https://clojure.github.io/clojure/javadoc/clojure/java/api/Clojure.html
         IFn require = Clojure.var("clojure.core", "require");
         require.invoke(Clojure.read(ns));
 
-        return ((Callable) Clojure.var(ns, fn)).call();
+        return Clojure.var(ns, fn);
     }
 }
